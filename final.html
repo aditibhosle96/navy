@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchors Away</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-screen" class="game-section">
+            <h1>Anchors Away</h1>
+            <p>Discover your path in the Navy and experience the life of a Naval Officer!</p>
+            <button id="start-btn" class="btn">Begin Your Journey</button>
+        </div>
+        
+        <div id="quiz-section" class="game-section">
+            <h2>Navy Career Quiz</h2>
+            <p>Answer these questions to find your ideal Naval career path:</p>
+
+            <div class="quiz-question">
+                <h3>1. What excites you the most about a career in the Navy?</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" data-value="1">1️⃣ Pushing my physical and mental limits in extreme training</button>
+                    <button class="option-btn" data-value="2">2️⃣ Working with high-tech naval systems and advanced weaponry</button>
+                    <button class="option-btn" data-value="3">3️⃣ Leading teams and making critical strategic decisions</button>
+                    <button class="option-btn" data-value="4">4️⃣ Designing, maintaining, and improving military technology</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" style="display: none;">
+                <h3>2. How do you perform best under pressure?</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" data-value="1">1️⃣ By staying physically strong and handling high-adrenaline situations</button>
+                    <button class="option-btn" data-value="2">2️⃣ By analyzing data and deploying technical solutions</button>
+                    <button class="option-btn" data-value="3">3️⃣ By making quick but well-thought-out leadership decisions</button>
+                    <button class="option-btn" data-value="4">4️⃣ By diagnosing and fixing mechanical or structural issues</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" style="display: none;">
+                <h3>3. What type of mission would you enjoy most?</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" data-value="1">1️⃣ Conducting underwater demolition or special forces operations</button>
+                    <button class="option-btn" data-value="2">2️⃣ Managing and operating sonar, radar, or weapons systems</button>
+                    <button class="option-btn" data-value="3">3️⃣ Leading a naval fleet or negotiating international missions</button>
+                    <button class="option-btn" data-value="4">4️⃣ Engineering and maintaining ships, submarines, and naval equipment</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" style="display: none;">
+                <h3>4. What kind of training excites you the most?</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" data-value="1">1️⃣ Combat diving, parachuting, and endurance challenges</button>
+                    <button class="option-btn" data-value="2">2️⃣ Mastering radar, sonar, and missile defense systems</button>
+                    <button class="option-btn" data-value="3">3️⃣ Leadership, naval strategy, and fleet management</button>
+                    <button class="option-btn" data-value="4">4️⃣ Engineering, robotics, and ship maintenance</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" style="display: none;">
+                <h3>5. What motivates you the most?</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" data-value="1">1️⃣ Being part of an elite, high-intensity force that never backs down</button>
+                    <button class="option-btn" data-value="2">2️⃣ Ensuring every system is mission-ready and functioning perfectly</button>
+                    <button class="option-btn" data-value="3">3️⃣ Commanding and inspiring people in high-pressure situations</button>
+                    <button class="option-btn" data-value="4">4️⃣ Solving technical challenges that keep the Navy running</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-results" class="game-section">
+            <h2>Your Naval Career Results</h2>
+            <div class="results-container">
+                <div id="result-display" class="result-card">
+                    <!-- Results will be inserted here -->
+                </div>
+                <button id="continue-to-character" class="btn">Continue Your Journey</button>
+            </div>
+        </div>
+
+        <div id="character-selection" class="game-section">
+            <h2>Choose Your Character</h2>
+            <div class="character-selection">
+                <div class="character-card" id="male-officer">
+                    <div class="character-img">
+                        <div class="character-placeholder">♂️</div>
+                    </div>
+                    <h3>Lieutenant Lim Wei Ming</h3>
+                    <p>Naval Officer</p>
+                </div>
+                <div class="character-card" id="female-officer">
+                    <div class="character-img">
+                        <div class="character-placeholder">♀️</div>
+                    </div>
+                    <h3>Lieutenant Tan Mei Ling</h3>
+                    <p>Naval Officer</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="story-section" class="game-section">
+            <h2>Your Naval Journey</h2>
+            <div class="dialogue-container">
+                <div class="officer-img">
+                    <div class="character-placeholder" id="officer-placeholder">👨‍✈️</div>
+                </div>
+                <div id="officer-name" class="officer-name">Lieutenant Lim Wei Ming</div>
+                <div id="dialogue-text" class="dialogue-text">
+                    So you must be the new recruit! Welcome aboard. It's good to have fresh faces joining our ranks.
+                </div>
+                <div id="dialogue-options" class="dialogue-options">
+                    <button class="btn dialogue-btn" data-next="1">Why did you join the Navy?</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-section" class="game-section">
+            <h2>Naval Combat: Pirate Encounter</h2>
+            <div class="game-stats">
+                <div class="stat">Score: <span id="game-score">0</span></div>
+                <div class="stat">Health: <span id="game-health">100</span>%</div>
+            </div>
+            <div id="game-message"></div>
+            <canvas id="game-canvas" width="700" height="500"></canvas>
+            <div class="game-controls">
+                <button id="restart-game" class="btn">Restart Mission</button>
+                <button id="return-story" class="btn">Return to Story</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
