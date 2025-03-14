@@ -729,3 +729,4 @@ function drawGame(ctx, canvas) {
     // Draw some wave patterns
     ctx.fillStyle = '#0c4980';
     const
+
