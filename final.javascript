@@ -38,14 +38,14 @@ const sections = {
 };
 
 // Dialog content
-const dialogues = [
-    {
-        text: "So you must be the new recruit! Welcome aboard. It's good to have fresh faces joining our ranks.",
-        options: [{ text: "Why did you join the Navy?", next: 1 }]
-    },
-    {
-        text: "That's a great question! I went to the Navy Museum during my polytechnic days and was fascinated by the experiences shared there. I knew then that I wanted to be a Navy officer.",
-        options: [{ text: "What motivated that decision?", next: 2 }]
+const sections = {
+    welcomeScreen: document.getElementById('welcome-screen'),
+    quizSection: document.getElementById('quiz-section'),
+    quizResults: document.getElementById('quiz-results'),
+    characterSelection: document.getElementById('character-selection'),
+    storySection: document.getElementById('story-section'),
+    gameSection: document.getElementById('game-section')
+};
     },
     {
         text: "I wanted to serve my country and see the world at the same time. After finishing poly, I applied for a scholarship and was accepted into the Navy. The training was challenging but incredibly rewarding.",
@@ -172,7 +172,7 @@ function handleCharacterSelection() {
         gameState.characterGender = 'male';
         document.getElementById('officer-name').textContent = gameState.characterName;
         document.getElementById('officer-placeholder').textContent = '👨‍✈️';
-        showSection('storySection');
+        showSection('story-section');
         updateDialogue();
     });
     
@@ -442,9 +442,9 @@ game.pirates.splice(j, 1);
         }, game.mines[i])) {
             game.health -= 20;
             game.mines.splice(i, 1);
-            game.isOfficerHit = true;
-            setTimeout(() => {
-                game.isOfficerHit = false;
+            game.score += 5;
+            game.bullets.splice(i, 1);
+            game.pirates.splice(j, 1);
             }, 300);
             i--;
         }
