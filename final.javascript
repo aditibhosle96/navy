@@ -407,7 +407,7 @@ function updateGame() {
             if (checkCollision(game.bullets[i], game.pirates[j])) {
                 game.score += 5;
                 game.bullets.splice(i, 1);
-                game.pirates.splice(j, 1);
+game.pirates.splice(j, 1);
                 i--;
                 break;
             }
@@ -416,4 +416,106 @@ function updateGame() {
     
     // Check for ship-pirate collisions
     for (let i = 0; i < game.pirates.length; i++) {
-        if (check
+        if (checkCollision({
+            x: game.shipX,
+            y: game.shipY,
+            width: game.shipWidth,
+            height: game.shipHeight
+        }, game.pirates[i])) {
+            game.health -= 10;
+            game.pirates.splice(i, 1);
+            game.isOfficerHit = true;
+            setTimeout(() => {
+                game.isOfficerHit = false;
+            }, 300);
+            i--;
+        }
+    }
+    
+    // Check for ship-mine collisions
+    for (let i = 0; i < game.mines.length; i++) {
+        if (checkCollision({
+            x: game.shipX,
+            y: game.shipY,
+            width: game.shipWidth,
+            height: game.shipHeight
+        }, game.mines[i])) {
+            game.health -= 20;
+            game.mines.splice(i, 1);
+            game.isOfficerHit = true;
+            setTimeout(() => {
+                game.isOfficerHit = false;
+            }, 300);
+            i--;
+        }
+    }
+}
+
+// Check for collision between two objects
+function checkCollision(obj1, obj2) {
+    return obj1.x < obj2.x + obj2.width &&
+           obj1.x + obj1.width > obj2.x &&
+           obj1.y < obj2.y + obj2.height &&
+           obj1.y + obj1.height > obj2.y;
+}
+
+// Draw game elements
+function drawGame(ctx, canvas) {
+    const game = gameState.game;
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw ship
+    if (game.isOfficerHit) {
+        ctx.fillStyle = 'red';
+    } else {
+        ctx.fillStyle = 'white';
+    }
+    ctx.beginPath();
+    ctx.rect(game.shipX, game.shipY, game.shipWidth, game.shipHeight);
+    ctx.fill();
+    ctx.closePath();
+    
+    // Draw bullets
+    ctx.fillStyle = 'yellow';
+    game.bullets.forEach(bullet => {
+        ctx.beginPath();
+        ctx.rect(bullet.x, bullet.y, bullet.width, bullet.height);
+        ctx.fill();
+        ctx.closePath();
+    });
+    
+    // Draw pirates
+    ctx.fillStyle = 'red';
+    game.pirates.forEach(pirate => {
+        ctx.beginPath();
+        ctx.rect(pirate.x, pirate.y, pirate.width, pirate.height);
+        ctx.fill();
+        ctx.closePath();
+    });
+    
+    // Draw mines
+    ctx.fillStyle = 'orange';
+    game.mines.forEach(mine => {
+        ctx.beginPath();
+        ctx.arc(mine.x + mine.width/2, mine.y + mine.height/2, mine.width/2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+    });
+}
+
+// Event listeners for initial screens
+document.addEventListener('DOMContentLoaded', function() {
+    // Start button
+    document.getElementById('start-btn').addEventListener('click', function() {
+        showSection('quizSection');
+        handleQuiz();
+    });
+    
+    // Continue to character selection
+    document.getElementById('continue-to-character').addEventListener('click', function() {
+        showSection('characterSelection');
+        handleCharacterSelection();
+    });
+});
