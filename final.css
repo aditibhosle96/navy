@@ -1,0 +1,208 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f;
+    color: #fff;
+    overflow-x: hidden;
+}    
+ 
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #ffd700;
+    text-align: center;
+}
+
+.game-section {
+    display: none;
+    margin-top: 20px;
+    background-color: #0e2a47;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#welcome-screen {
+    display: block;
+    text-align: center;
+}
+
+.btn {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0d47a1;
+}
+
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.option-btn {
+    background-color: #2e5c8a;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.option-btn:hover {
+    background-color: #3d7ab6;
+}
+
+.character-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.character-card {
+    background-color: #193a61;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 45%;
+    transition: transform 0.3s;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+}
+
+.character-img {
+    width: 150px;
+    height: 200px;
+    background-color: #0a192f;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-placeholder {
+    font-size: 50px;
+    color: #1e88e5;
+}
+
+.dialogue-container {
+    background-color: #193a61;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.officer-img {
+    width: 100px;
+    height: 100px;
+    background-color: #0a192f;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogue-text {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.dialogue-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#game-canvas {
+    background-color: #071426;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: crosshair;
+}
+
+.game-controls {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.control-btn {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.results-container {
+    text-align: center;
+}
+
+.result-card {
+    background-color: #193a61;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.emoji {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#game-message {
+    text-align: center;
+    font-size: 24px;
+    color: #ffd700;
+    margin: 15px 0;
+    min-height: 36px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.stat {
+    background-color: #193a61;
+    padding: 10px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+}
+
+.officer-name {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
